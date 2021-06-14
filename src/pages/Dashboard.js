@@ -9,12 +9,30 @@ class Dashboard extends React.Component {
         super(props);
         this.state = {
             listProduct: [],
+            filteredProducts: [],
+        }
+    }
+
+    updateFilter (value) {
+        if(value) {
+            const list = this.state.listProduct.filter((item) => {
+                const regex = new RegExp(value, 'i')
+                return (item.brand.match(regex) || item.model.match(regex));
+            });
+            this.setState({
+                filteredProducts: list
+            })
+        } else {
+            this.setState({
+                filteredProducts: [...this.state.listProduct]
+            })
         }
     }
 
     async componentDidMount() {
         this.setState({
             listProduct: this.props.products,
+            filteredProducts: this.props.products
         })
     }
 
@@ -24,7 +42,8 @@ class Dashboard extends React.Component {
                 header={<Header/>}
             >
                 <Container>
-                    <ListView listProduct={this.state.listProduct}/>
+                    <ListView listProduct={this.state.listProduct}
+                              updateFilter={(filter) => this.updateFilter(filter)}/>
                 </Container>
             </PageTemplate>
         )

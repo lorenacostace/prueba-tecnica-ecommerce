@@ -9,7 +9,7 @@ class ListView extends React.Component {
             <div>
                 <Row justifyContent="end">
                     <Col col md="5">
-                        <Search />
+                        <Search updateFilter={(filter) => this.props.updateFilter(filter)}/>
                     </Col>
                 </Row>
                 <div>
