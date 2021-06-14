@@ -21,6 +21,7 @@ class DetailView extends React.Component {
         }
         this.optionsSelected = {};
         this.id = this.props.match.params.id;
+        this.modifiedSelector = this.modifiedSelector.bind(this);
     }
 
     setProduct(product) {
@@ -59,6 +60,19 @@ class DetailView extends React.Component {
         }, {})
     }
 
+    modifiedSelector(id, code) {
+        this.optionsSelected[id] = code;
+        this.checkSelectors()
+    }
+
+    checkSelectors () {
+        if(Object.keys(this.optionsSelected).length === this.state.selectors.length) {
+            this.setState({
+                enableAddButton: true
+            })
+        }
+    }
+
     async componentDidMount() {
         this.setProduct(this.props.product);
     }
@@ -83,7 +97,9 @@ class DetailView extends React.Component {
                         </Col>
                         <Col col={12} md="6" lg="6" xl="6">
                             <DescriptionProduct description={ this.state.descriptions }/>
-                            <Actions selectors={this.state.selectors} enableAddButton={this.state.enableAddButton}/>
+                            <Actions selectors={this.state.selectors}
+                                     enableAddButton={this.state.enableAddButton}
+                                     updateSelector={this.modifiedSelector}/>
                         </Col>
                     </Row>
                 </Container>

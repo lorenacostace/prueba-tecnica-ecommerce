@@ -15,6 +15,7 @@ class Actions extends React.Component {
                                     <Selector name={selector.id}
                                               selected={selector.selected}
                                               options={selector.keyValue}
+                                              updateSelector={this.props.updateSelector}
                                      />
                                 </Col>)
                         })
