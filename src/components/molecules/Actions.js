@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'styled-bootstrap-grid';
-import Selector from "../atoms/Selector";
+import Selector from "../atoms/selector/Selector";
 import CustomButton from "../atoms/customButton/CustomButton";
 
 class Actions extends React.Component {

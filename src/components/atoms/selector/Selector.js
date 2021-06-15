@@ -1,4 +1,5 @@
 import React from 'react';
+import {SelectStyle} from "./SelectorStyle";
 
 class Selector extends React.Component {
 
@@ -17,7 +18,7 @@ class Selector extends React.Component {
     render() {
 
         return (
-            <select  value={this.state.value}
+            <SelectStyle  value={this.state.value}
                      onChange={this.handleChange}
                      name="select">
                 <option hidden> {this.props.name} </option>
@@ -26,7 +27,7 @@ class Selector extends React.Component {
                         return (<option value={item.code} key={item.name}> {item.name} </option>)
                     })
                 }
-            </select>
+            </SelectStyle>
         )
     }
 }
