@@ -6,7 +6,7 @@ import DescriptionProduct from "../components/atoms/DescriptionProduct";
 import PageTemplate from "../components/templates/PageTeamplate";
 import Header from "../components/molecules/Header";
 import { Link } from "react-router-dom";
-import backButton from "../../images/back.png"
+import backButton from "../images/back.png"
 import { objectToPascalKeys } from "../helpers/utils";
 import * as eventBus from "../helpers/eventBus";
 import { cartRepository, productRepository } from "../repository";
@@ -118,7 +118,8 @@ class DetailView extends React.Component {
                             <DescriptionProduct description={ this.state.descriptions }/>
                             <Actions selectors={this.state.selectors}
                                      enableAddButton={this.state.enableAddButton}
-                                     addCart={this.addCart}/>
+                                     addCart={this.addCart}
+                                     updateSelector={this.modifiedSelector}/>
                         </Col>
                     </Row>
                 </Container>
