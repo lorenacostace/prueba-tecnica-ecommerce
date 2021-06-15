@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from '../atoms/Grid';
 import * as eventBus from "../../helpers/eventBus";
 import * as storage from "../../helpers/storage";
-import Breadcrumb from "../atoms/Breadcrumb";
+import Breadcrumb from "../atoms/breadcrumb/Breadcrumb";
 
 class Header extends React.Component {
     constructor(props) {

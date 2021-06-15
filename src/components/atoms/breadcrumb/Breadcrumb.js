@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from "react-router-dom";
-import routes from "../../config/routes";
+import routes from "../../../config/routes";
+import { BreadCrumbs } from "./BreadCrumbStyle";
 
 function Breadcrumb (props) {
     const crumbs = routes
@@ -19,7 +20,7 @@ function Breadcrumb (props) {
         return null;
     }
     return (
-        <div>
+        <BreadCrumbs>
             {crumbs.map(({ name, path }, key) =>
                 key + 1 === crumbs.length ? (
                     <span key={key}>
@@ -31,7 +32,7 @@ function Breadcrumb (props) {
                     </Link>
                 )
             )}
-        </div>
+        </BreadCrumbs>
     )
 }
 
