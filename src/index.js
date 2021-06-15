@@ -5,6 +5,7 @@ import {ThemeProvider} from "styled-components";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import routes from "./config/routes";
 import {BaseCSS, GridThemeProvider} from "styled-bootstrap-grid";
+import '../src/normalize.css';
 
 const styledTheme = {
   mainColor: 'grey',
