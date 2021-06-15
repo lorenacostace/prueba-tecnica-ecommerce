@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from 'styled-bootstrap-grid';
 import styled from "styled-components";
+import {FeaturesStyle, MarginLeft, NameStyle, PriceStyle} from "./descriptionProductStyle";
 
 function DescriptionProduct (props) {
     const {
@@ -14,22 +15,22 @@ function DescriptionProduct (props) {
     });
 
     return (
-        <Row>
+        <MarginLeft>
             <Col col={12}>
                 <Row>
-                    <Col col="12" >
+                    <NameStyle col="12" >
                         { `${Brand} ${Model}`}
-                    </Col>
+                    </NameStyle>
                 </Row>
                 <Row>
-                    <Col col="2">
+                    <PriceStyle col="2">
                         { Price }€
-                    </Col>
+                    </PriceStyle>
                 </Row>
-                <span>Features</span>
+                <FeaturesStyle>Features</FeaturesStyle>
                 { descriptions }
             </Col>
-        </Row>
+        </MarginLeft>
     )
 }
 

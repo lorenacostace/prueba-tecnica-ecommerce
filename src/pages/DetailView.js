@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from "../components/atoms/Grid"
 import ImageProduct from "../components/atoms/ImageProduct";
 import Actions from "../components/molecules/Actions";
-import DescriptionProduct from "../components/atoms/DescriptionProduct";
+import DescriptionProduct from "../components/atoms/descriptionProduct/DescriptionProduct";
 import PageTemplate from "../components/templates/PageTeamplate";
 import Header from "../components/molecules/Header";
 import { Link } from "react-router-dom";
