@@ -1,17 +1,18 @@
-import ImageProduct from "../atoms/imageProduct/ImageProduct";
-import DescriptionItem from "../molecules/descriptionItem/DescriptionItem";
+import ImageProduct from "../../atoms/imageProduct/ImageProduct";
+import DescriptionItem from "../../molecules/descriptionItem/DescriptionItem";
 import styled from "styled-components";
+import { ProductStyle } from "./ProductStyle";
 
 function Product(props) {
     const {
         imgUrl, id, ...description
     } = props.data;
     return (
-        <div>
+        <ProductStyle>
             <ImageProduct image={imgUrl}/>
             <SeparationLine/>
             <DescriptionItem description={description}/>
-        </div>
+        </ProductStyle>
     )
 }
 

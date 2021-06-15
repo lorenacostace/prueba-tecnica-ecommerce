@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from "../atoms/Grid"
-import Product from "../organisms/Product";
+import Product from "./product/Product";
 import { Link } from "react-router-dom";
 
 class ListProduct extends React.Component {
