@@ -1,8 +1,9 @@
 import React from "react";
-import { Col, Container, Row } from '../atoms/Grid';
-import * as eventBus from "../../helpers/eventBus";
-import * as storage from "../../helpers/storage";
-import Breadcrumb from "../atoms/breadcrumb/Breadcrumb";
+import { Col, Container, Row } from '../../atoms/Grid';
+import * as eventBus from "../../../helpers/eventBus";
+import * as storage from "../../../helpers/storage";
+import Breadcrumb from "../../atoms/breadcrumb/Breadcrumb";
+import {ColTittle, HeaderContainer} from "./HeaderStyle";
 
 class Header extends React.Component {
     constructor(props) {
@@ -35,16 +36,16 @@ class Header extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Container fluid={true}>
+                <HeaderContainer fluid={true}>
                     <Row alignItems="center" justifyContent="between">
-                        <Col col={2}>
+                        <ColTittle col={2}>
                             <h1> MyMovil </h1>
-                        </Col>
+                        </ColTittle>
                         <Col col={1}>
                             {this.state.count}
                         </Col>
                     </Row>
-                </Container>
+                </HeaderContainer>
                 <Container>
                     <Row>
                         <Col>

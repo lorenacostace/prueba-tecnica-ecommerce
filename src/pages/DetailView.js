@@ -4,7 +4,7 @@ import ImageProduct from "../components/atoms/imageProduct/ImageProduct";
 import Actions from "../components/molecules/Actions";
 import DescriptionProduct from "../components/atoms/descriptionProduct/DescriptionProduct";
 import PageTemplate from "../components/templates/PageTeamplate";
-import Header from "../components/molecules/Header";
+import Header from "../components/molecules/header/Header";
 import { Link } from "react-router-dom";
 import backButton from "../images/back.png"
 import { objectToPascalKeys } from "../helpers/utils";
