@@ -3,6 +3,7 @@ import PageTemplate from '../components/templates/PageTeamplate';
 import Header from "../components/molecules/Header";
 import ListView from "../components/organisms/ListView";
 import { Container } from "../components/atoms/Grid";
+import {productRepository} from "../repository";
 
 class Dashboard extends React.Component {
     constructor(props){
@@ -30,9 +31,10 @@ class Dashboard extends React.Component {
     }
 
     async componentDidMount() {
+        const products = await productRepository.getProducts();
         this.setState({
-            listProduct: this.props.products,
-            filteredProducts: this.props.products
+            listProduct: products,
+            filteredProducts: products
         })
     }
 
