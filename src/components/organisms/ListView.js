@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from '../atoms/Grid';
 import ListProduct from "./ListProduct";
-import Search from "../atoms/Search";
+import Search from "../atoms/search/Search";
 
 class ListView extends React.Component {
     render() {

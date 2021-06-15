@@ -1,4 +1,5 @@
 import React from "react";
+import {Input} from "./SearchStyle";
 
 class Search extends React.Component {
     filterProduct = (e) => {
@@ -12,7 +13,7 @@ class Search extends React.Component {
 
     render() {
         return(
-            <input onChange={this.filterProduct} placeholder= "Search"/>
+            <Input onChange={this.filterProduct} placeholder= "Search"/>
         )
     }
 }
