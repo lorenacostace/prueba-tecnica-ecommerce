@@ -8,6 +8,8 @@ import Header from "../components/molecules/Header";
 import { Link } from "react-router-dom";
 import backButton from "../../images/back.png"
 import { objectToPascalKeys } from "../helpers/utils";
+import * as eventBus from "../helpers/eventBus";
+import { cartRepository, productRepository } from "../repository";
 
 class DetailView extends React.Component {
 
@@ -22,6 +24,7 @@ class DetailView extends React.Component {
         this.optionsSelected = {};
         this.id = this.props.match.params.id;
         this.modifiedSelector = this.modifiedSelector.bind(this);
+        this.addCart = this.addCart.bind(this);
     }
 
     setProduct(product) {
@@ -73,8 +76,24 @@ class DetailView extends React.Component {
         }
     }
 
+    async addCart() {
+        const response = await cartRepository.postCart({
+            id: this.id,
+            selectors: this.optionsSelected
+        });
+        eventBus._dispatchEvent('update-cart', response.count);
+    } catch (e) {
+        // TODO Handler error
+    }
+
     async componentDidMount() {
-        this.setProduct(this.props.product);
+        let product;
+        try {
+            product = await productRepository.getProductById(this.id);
+        } catch (e) {
+            // TODO Handler error
+        }
+        this.setProduct(product);
     }
 
     render() {
@@ -99,7 +118,7 @@ class DetailView extends React.Component {
                             <DescriptionProduct description={ this.state.descriptions }/>
                             <Actions selectors={this.state.selectors}
                                      enableAddButton={this.state.enableAddButton}
-                                     updateSelector={this.modifiedSelector}/>
+                                     addCart={this.addCart}/>
                         </Col>
                     </Row>
                 </Container>

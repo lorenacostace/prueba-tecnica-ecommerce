@@ -23,6 +23,7 @@ class Actions extends React.Component {
                 </Row>
                 <CustomButton text="ADD"
                               enableAddButton={this.props.enableAddButton}
+                              addCart={this.props.addCart}
                               bold/>
             </React.Fragment>
         )
