@@ -1,10 +1,11 @@
 import React from 'react';
+import {Image} from "./ImageProductStyle";
 
 function ImageProduct (props) {
     return (
-        <image>
+        <Image>
             <img src={ props.image } alt="product" />
-        </image>
+        </Image>
     )
 }
 

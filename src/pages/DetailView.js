@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from "../components/atoms/Grid"
-import ImageProduct from "../components/atoms/ImageProduct";
+import ImageProduct from "../components/atoms/imageProduct/ImageProduct";
 import Actions from "../components/molecules/Actions";
 import DescriptionProduct from "../components/atoms/descriptionProduct/DescriptionProduct";
 import PageTemplate from "../components/templates/PageTeamplate";

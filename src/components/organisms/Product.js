@@ -1,4 +1,4 @@
-import ImageProduct from "../atoms/ImageProduct";
+import ImageProduct from "../atoms/imageProduct/ImageProduct";
 import DescriptionItem from "../molecules/DescriptionItem";
 import styled from "styled-components";
 
