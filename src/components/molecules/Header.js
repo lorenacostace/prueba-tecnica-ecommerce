@@ -1,7 +1,8 @@
 import React from "react";
-import {Col, Container, Row} from '../atoms/Grid';
+import { Col, Container, Row } from '../atoms/Grid';
 import * as eventBus from "../../helpers/eventBus";
 import * as storage from "../../helpers/storage";
+import Breadcrumb from "../atoms/Breadcrumb";
 
 class Header extends React.Component {
     constructor(props) {
@@ -41,6 +42,13 @@ class Header extends React.Component {
                         </Col>
                         <Col col={1}>
                             {this.state.count}
+                        </Col>
+                    </Row>
+                </Container>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Breadcrumb {...this.props}/>
                         </Col>
                     </Row>
                 </Container>
