@@ -3,7 +3,7 @@ import PageTemplate from '../components/templates/PageTeamplate';
 import Header from "../components/molecules/Header";
 import ListView from "../components/organisms/ListView";
 import { Container } from "../components/atoms/Grid";
-import {productRepository} from "../repository";
+import { productRepository } from "../repository";
 
 class Dashboard extends React.Component {
     constructor(props){
