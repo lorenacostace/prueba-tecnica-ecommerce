@@ -1,5 +1,5 @@
 import ImageProduct from "../atoms/imageProduct/ImageProduct";
-import DescriptionItem from "../molecules/DescriptionItem";
+import DescriptionItem from "../molecules/descriptionItem/DescriptionItem";
 import styled from "styled-components";
 
 function Product(props) {
