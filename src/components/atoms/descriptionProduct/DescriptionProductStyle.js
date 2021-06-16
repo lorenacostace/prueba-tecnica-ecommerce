@@ -26,6 +26,7 @@ export const PriceStyle = styled(Col)`
   font-size: 35px;
   color: #D10024;
   padding-top: 0.4em;
+  padding-bottom: 0.5em;
 `
 
 export const MarginLeft = styled(Row)`
@@ -37,4 +38,13 @@ export const FeaturesStyle = styled.span`
   font-weight: 400;
   font-size: 25px;
   color: #2B2D42;
+  padding-bottom: 1em;
+`
+
+export const Line = styled.div`
+  background-color: #D10024;
+  height: 2px;
+  width: 40px;
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
 `

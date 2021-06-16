@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from 'styled-bootstrap-grid';
 import styled from "styled-components";
-import {FeaturesStyle, MarginLeft, NameStyle, PriceStyle} from "./descriptionProductStyle";
+import {FeaturesStyle, Line, MarginLeft, NameStyle, PriceStyle} from "./DescriptionProductStyle";
 
 function DescriptionProduct (props) {
     const {
@@ -28,6 +28,7 @@ function DescriptionProduct (props) {
                     </PriceStyle>
                 </Row>
                 <FeaturesStyle>Features</FeaturesStyle>
+                <Line/>
                 { descriptions }
             </Col>
         </MarginLeft>
