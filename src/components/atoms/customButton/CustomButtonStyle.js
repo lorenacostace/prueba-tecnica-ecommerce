@@ -7,10 +7,12 @@ export const Button = styled.button`
   padding: 10px 50px 10px;
   margin: 0.5rem 0;
   width: 100%;
+  cursor:pointer;
 
   ${props => props.disabled && css`
     background-color: #c1bdbe;
     color: #FFF;
+    cursor: auto;
   `}
 
   ${props => props.bold && css`
