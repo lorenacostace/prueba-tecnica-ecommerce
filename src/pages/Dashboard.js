@@ -42,7 +42,7 @@ class Dashboard extends React.Component {
                 header={<Header/>}
             >
                 <Container>
-                    <ListView listProduct={this.state.listProduct}
+                    <ListView listProduct={this.state.filteredProducts}
                               updateFilter={(filter) => this.updateFilter(filter)}/>
                 </Container>
             </PageTemplate>
