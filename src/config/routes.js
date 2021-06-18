@@ -1,5 +1,5 @@
 import Dashboard from '../pages/dashboard/DashboardContainer'
-import DetailView from '../pages/detailView/DetailView'
+import DetailView from '../pages/detailView/DetailViewContainer'
 
 const routes = [
     { path: "/", name: "Dashboard", Component: Dashboard },

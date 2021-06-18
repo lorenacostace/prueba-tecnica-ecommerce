@@ -1,24 +1,21 @@
 import React from 'react';
-import { Col, Container, Row } from "../components/atoms/Grid"
-import ImageProduct from "../components/atoms/imageProduct/ImageProduct";
-import Actions from "../components/molecules/Actions";
-import DescriptionProduct from "../components/atoms/descriptionProduct/DescriptionProduct";
-import PageTemplate from "../components/templates/PageTeamplate";
-import Header from "../components/molecules/header/Header";
+import { Col, Container, Row } from "../../components/atoms/Grid"
+import ImageProduct from "../../components/atoms/imageProduct/ImageProduct";
+import Actions from "../../components/molecules/Actions";
+import DescriptionProduct from "../../components/atoms/descriptionProduct/DescriptionProduct";
+import PageTemplate from "../../components/templates/PageTeamplate";
+import Header from "../../components/molecules/header/Header";
 import { Link } from "react-router-dom";
-import backButton from "../images/back.png"
-import { objectToPascalKeys } from "../helpers/utils";
-import * as eventBus from "../helpers/eventBus";
-import { cartRepository, productRepository } from "../repository";
+import backButton from "../../images/back.png"
+import { objectToPascalKeys } from "../../helpers/utils";
+import * as eventBus from "../../helpers/eventBus";
+import { cartRepository, productRepository } from "../../repository";
 
 class DetailView extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            selectors: [],
-            descriptions: {},
-            imgUrl: "",
             enableAddButton: false
         }
         this.optionsSelected = {};
@@ -28,20 +25,15 @@ class DetailView extends React.Component {
     }
 
     setProduct(product) {
-        const { imgUrl, id, options, ...features } = product;
-        const descriptions = this.parsedDescriptions(features);
+        const { id, options, ...features } = product;
+        this.props.updatedProduct(features);
         const selectors = this.parsedSelectors(options)
         selectors.forEach(item => {
             if (item.keyValue.length === 1) {
                 this.optionsSelected[item.id] = item.keyValue[0].code;
             }
         });
-
-        this.setState({
-            imgUrl,
-            descriptions,
-            selectors
-        })
+        this.props.updatedSelectors(selectors);
     }
 
     parsedSelectors(selectors) {
@@ -69,7 +61,7 @@ class DetailView extends React.Component {
     }
 
     checkSelectors () {
-        if(Object.keys(this.optionsSelected).length === this.state.selectors.length) {
+        if(Object.keys(this.optionsSelected).length === this.props.selectors.length) {
             this.setState({
                 enableAddButton: true
             })
@@ -94,9 +86,12 @@ class DetailView extends React.Component {
             // TODO Handler error
         }
         this.setProduct(product);
+
     }
 
     render() {
+        const {imgUrl, ...productFeatures } = this.props.product;
+        const { ...descriptions} = this.parsedDescriptions(productFeatures);
         return (
             <PageTemplate
                 header={<Header {...this.props}/>}
@@ -112,11 +107,11 @@ class DetailView extends React.Component {
                     <Row justifyContent="center">
                         <Col col={12} md="4" mdOffset="2">
                             {/* TODO preparar carrusel para cuando se reciba más de una imagen*/}
-                            <ImageProduct image={ this.state.imgUrl }/>
+                            <ImageProduct image={ this.props.product.imgUrl }/>
                         </Col>
                         <Col col={12} md="6" lg="6" xl="6">
-                            <DescriptionProduct description={ this.state.descriptions }/>
-                            <Actions selectors={this.state.selectors}
+                            <DescriptionProduct description={ descriptions }/>
+                            <Actions selectors={this.props.selectors}
                                      enableAddButton={this.state.enableAddButton}
                                      addCart={this.addCart}
                                      updateSelector={this.modifiedSelector}/>

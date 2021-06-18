@@ -5,20 +5,18 @@ class Selector extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: props.selected};
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
         this.props.updateSelector(this.props.name, event.target.value)
     }
 
     render() {
 
         return (
-            <SelectStyle  value={this.state.value}
+            <SelectStyle  value={this.props.selected}
                      onChange={this.handleChange}
                      name="select">
                 <option hidden> {this.props.name} </option>
