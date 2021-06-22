@@ -57,6 +57,20 @@ class DetailView extends React.Component {
 
     modifiedSelector(id, code) {
         this.optionsSelected[id] = code;
+        const selectors = this.props.selectors.map((item) => {
+            console.log(item);
+            if(item.id === id){
+                return {
+                    id: item.id,
+                    keyValue: item.keyValue,
+                    selected:code,
+                }
+            }
+            else {
+                return item;
+            }
+        })
+        this.props.updatedSelectors(selectors);
         this.checkSelectors()
     }
 
