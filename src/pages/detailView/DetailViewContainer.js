@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import DetailView from "./DetailView";
 import { actions as actionsProduct } from '../../redux/product'
-import { actions as actionsSelectors } from '../../redux/detailView'
+import { actions as actionsDetailView } from '../../redux/detailView'
 import { actions as actionsCart } from '../../redux/cart'
 
 const mapStateToProps = (state) => {
@@ -9,14 +9,16 @@ const mapStateToProps = (state) => {
         product: state.product,
         selectors: state.detailView.selectors,
         cart: state.cart,
+        enableAddButton: state.detailView.enableAddButton
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         updatedProduct: (product) => dispatch(actionsProduct.setProduct(product)),
-        updatedSelectors: (selectors) => dispatch(actionsSelectors.setSelectors(selectors)),
+        updatedSelectors: (selectors) => dispatch(actionsDetailView.setSelectors(selectors)),
         updateCart: (cart) => dispatch(actionsCart.setCart(cart)),
+        updateAddButton: (bool) => dispatch(actionsDetailView.setAddButton(bool)),
     }
 }
 

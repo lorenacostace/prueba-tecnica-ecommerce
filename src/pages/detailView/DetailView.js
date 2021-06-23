@@ -14,9 +14,6 @@ class DetailView extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            enableAddButton: false
-        }
         this.optionsSelected = {};
         this.id = this.props.match.params.id;
         this.modifiedSelector = this.modifiedSelector.bind(this);
@@ -76,9 +73,7 @@ class DetailView extends React.Component {
 
     checkSelectors () {
         if(Object.keys(this.optionsSelected).length === this.props.selectors.length) {
-            this.setState({
-                enableAddButton: true
-            })
+            this.props.updateAddButton(true);
         }
     }
 
@@ -100,7 +95,6 @@ class DetailView extends React.Component {
             // TODO Handler error
         }
         this.setProduct(product);
-
     }
 
     render() {
@@ -126,7 +120,7 @@ class DetailView extends React.Component {
                         <Col col={12} md="6" lg="6" xl="6">
                             <DescriptionProduct description={ descriptions }/>
                             <Actions selectors={this.props.selectors}
-                                     enableAddButton={this.state.enableAddButton}
+                                     enableAddButton={this.props.enableAddButton}
                                      addCart={this.addCart}
                                      updateSelector={this.modifiedSelector}/>
                         </Col>

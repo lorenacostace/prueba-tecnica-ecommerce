@@ -6,6 +6,12 @@ export const actions = {
             payload: selectors
         }
     },
+    setAddButton: (bool) => {
+        return {
+            type: "SET_ADDBUTTON",
+            payload: bool
+        };
+    }
 };
 
 // Reducers
@@ -16,6 +22,11 @@ export const selectorsReducer = (state = {}, action) => {
                 ...state,
                 selectors: action.payload
             };
+        case "SET_ADDBUTTON":
+            return {
+                ...state,
+                enableAddButton: action.payload
+            }
         default:
             return state;
     }

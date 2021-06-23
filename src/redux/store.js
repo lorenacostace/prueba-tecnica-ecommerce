@@ -12,7 +12,8 @@ const initialState = {
     },
     product: {},
     detailView: {
-        selectors: []
+        selectors: [],
+        enableAddButton: false,
     },
     cart: 0,
 };
