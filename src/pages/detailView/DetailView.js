@@ -8,7 +8,6 @@ import Header from "../../components/molecules/header/Header";
 import { Link } from "react-router-dom";
 import backButton from "../../images/back.png"
 import { objectToPascalKeys } from "../../helpers/utils";
-import * as eventBus from "../../helpers/eventBus";
 import { cartRepository, productRepository } from "../../repository";
 
 class DetailView extends React.Component {
@@ -34,6 +33,7 @@ class DetailView extends React.Component {
             }
         });
         this.props.updatedSelectors(selectors);
+        this.checkSelectors()
     }
 
     parsedSelectors(selectors) {
@@ -87,7 +87,7 @@ class DetailView extends React.Component {
             id: this.id,
             selectors: this.optionsSelected
         });
-        eventBus._dispatchEvent('update-cart', response.count);
+        this.props.updateCart(this.props.cart+response.count)
     } catch (e) {
         // TODO Handler error
     }

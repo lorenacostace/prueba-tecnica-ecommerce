@@ -27,7 +27,7 @@ class Dashboard extends React.Component {
     render() {
         return(
             <PageTemplate
-                header={<Header/>}
+                header={<Header {...this.props}/>}
             >
                 <Container>
                     <ListView listProduct={this.props.filteredProducts}

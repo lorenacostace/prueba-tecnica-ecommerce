@@ -3,6 +3,7 @@ import { productsReducer as products } from "./products";
 import { filteredReducer as dashboard} from "./dashboard";
 import { productReducer as product } from "./product";
 import { selectorsReducer as detailView } from "./detailView";
+import { cartReducer as cart } from "./cart";
 
 const initialState = {
     products: [],
@@ -13,10 +14,11 @@ const initialState = {
     detailView: {
         selectors: []
     },
+    cart: 0,
 };
 
 const reducers = combineReducers({
-    products, dashboard, product, detailView
+    products, dashboard, product, detailView, cart
 })
 
 const store = createStore(reducers, initialState);
