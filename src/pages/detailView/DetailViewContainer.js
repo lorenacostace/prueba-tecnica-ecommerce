@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
         updatedSelectors: (selectors) => dispatch(actionsDetailView.setSelectors(selectors)),
         updateCart: (cart) => dispatch(actionsCart.setCart(cart)),
         updateAddButton: (bool) => dispatch(actionsDetailView.setAddButton(bool)),
+        detailViewReset: () => dispatch(actionsDetailView.reset())
     }
 }
 

@@ -1,3 +1,9 @@
+// Initial state
+export const initialStateDetailView = {
+    selectors: [],
+        enableAddButton: false,
+};
+
 // Actions
 export const actions = {
     setSelectors: (selectors) => {
@@ -11,11 +17,16 @@ export const actions = {
             type: "SET_ADDBUTTON",
             payload: bool
         };
+    },
+    reset: () => {
+        return {
+            type: "RESET",
+        };
     }
 };
 
 // Reducers
-export const selectorsReducer = (state = {}, action) => {
+export const detailViewReducer = (state = {}, action) => {
     switch (action.type) {
         case "SET_SELECTORS":
             return {
@@ -26,6 +37,10 @@ export const selectorsReducer = (state = {}, action) => {
             return {
                 ...state,
                 enableAddButton: action.payload
+            }
+        case "RESET":
+            return {
+                ...initialStateDetailView,
             }
         default:
             return state;

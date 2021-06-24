@@ -30,7 +30,7 @@ class DetailView extends React.Component {
             }
         });
         this.props.updatedSelectors(selectors);
-        this.checkSelectors()
+        this.checkEnableAddButton()
     }
 
     parsedSelectors(selectors) {
@@ -68,11 +68,11 @@ class DetailView extends React.Component {
             }
         })
         this.props.updatedSelectors(selectors);
-        this.checkSelectors()
+        this.checkEnableAddButton()
     }
 
-    checkSelectors () {
-        if(Object.keys(this.optionsSelected).length === this.props.selectors.length) {
+    checkEnableAddButton () {
+        if((Object.keys(this.optionsSelected).length === this.props.selectors.length) && this.props.product.price !== "") {
             this.props.updateAddButton(true);
         }
     }
@@ -95,6 +95,10 @@ class DetailView extends React.Component {
             // TODO Handler error
         }
         this.setProduct(product);
+    }
+
+    componentWillUnmount() {
+        this.props.detailViewReset();
     }
 
     render() {
