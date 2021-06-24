@@ -9,9 +9,11 @@ function DescriptionProduct (props) {
     } = props.description;
 
     const descriptions = Object.keys(description).map((key, index) => {
-        return (
-            <div key={index}>  <BoldStyle>{`${key}: `}</BoldStyle> {`${description[key]}` }</div>
-        )
+        if(description[key] !== ''){
+            return (
+                <div key={index}>  <BoldStyle>{`${key}: `}</BoldStyle> {`${description[key]}` }</div>
+            )
+        }
     });
 
     return (
