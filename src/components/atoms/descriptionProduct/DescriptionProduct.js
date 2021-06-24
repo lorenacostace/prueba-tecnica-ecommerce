@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Col } from 'styled-bootstrap-grid';
-import styled from "styled-components";
-import {FeaturesStyle, Line, MarginLeft, NameStyle, PriceStyle} from "./DescriptionProductStyle";
+import {FeaturesStyle, Line, MarginLeft, NameStyle, PriceStyle, BoldStyle} from "./DescriptionProductStyle";
 
 function DescriptionProduct (props) {
     const {
@@ -36,9 +35,5 @@ function DescriptionProduct (props) {
         </MarginLeft>
     )
 }
-
-const BoldStyle = styled.span`
-  font-weight: bold;
-`
 
 export default DescriptionProduct;
