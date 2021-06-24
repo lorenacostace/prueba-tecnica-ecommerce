@@ -5,7 +5,7 @@ import {FeaturesStyle, Line, MarginLeft, NameStyle, PriceStyle} from "./Descript
 
 function DescriptionProduct (props) {
     const {
-        Brand, Model, Price, ...description
+        Brand, Model, Price, CurrencySymbol = '€',...description
     } = props.description;
 
     const descriptions = Object.keys(description).map((key, index) => {
@@ -18,13 +18,13 @@ function DescriptionProduct (props) {
         <MarginLeft>
             <Col col={12}>
                 <Row>
-                    <NameStyle col="12" >
+                    <NameStyle col>
                         { `${Brand} ${Model}`}
                     </NameStyle>
                 </Row>
                 <Row>
-                    <PriceStyle col="2">
-                        { Price }€
+                    <PriceStyle col>
+                        { Price ? `${Price} ${CurrencySymbol}` : 'Price not available' }
                     </PriceStyle>
                 </Row>
                 <FeaturesStyle>Features</FeaturesStyle>
