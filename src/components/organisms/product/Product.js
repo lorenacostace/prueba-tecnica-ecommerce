@@ -1,7 +1,6 @@
 import ImageProduct from "../../atoms/imageProduct/ImageProduct";
 import DescriptionItem from "../../molecules/descriptionItem/DescriptionItem";
-import styled from "styled-components";
-import { ProductStyle } from "./ProductStyle";
+import {ProductStyle, SeparationLine } from "./ProductStyle";
 
 function Product(props) {
     const {
@@ -15,10 +14,5 @@ function Product(props) {
         </ProductStyle>
     )
 }
-
-const SeparationLine = styled.div`
-  background-color: #E4E7ED;
-  height: 1px;
-`
 
 export default Product
