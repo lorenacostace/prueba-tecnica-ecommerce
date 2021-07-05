@@ -4,14 +4,12 @@ import Header from "../../components/molecules/header/Header";
 import ListView from "../../components/organisms/ListView";
 import { Container } from "../../components/atoms/Grid";
 import { productRepository } from "../../repository";
+import { updateFilter } from "../../helpers/service";
 
 class Dashboard extends React.Component {
     updateFilter (value) {
         if(value) {
-            const list = this.props.products.filter((item) => {
-                const regex = new RegExp(value, 'i')
-                return (item.brand.match(regex) || item.model.match(regex));
-            });
+            const list = updateFilter(this.props.products, value);
             this.props.filterProducts(list)
         } else {
             this.props.filterProducts(this.props.products)
