@@ -5,7 +5,7 @@ class Search extends React.Component {
     filterProduct = (e) => {
         let value = "";
 
-        if(e.target.value.length >= 3){
+        if(e.target.value.length >= 1){
             value = e.target.value;
         }
         this.props.updateFilter(value);
