@@ -21,7 +21,7 @@ class DetailView extends React.Component {
     }
 
     setProduct(product) {
-        const { id, options, ...features } = product;
+        const { options, ...features } = product;
         this.props.updatedProduct(features);
         const selectors = this.parsedSelectors(options)
         selectors.forEach(item => {
@@ -84,7 +84,7 @@ class DetailView extends React.Component {
         });
         this.props.updateCart(this.props.cart+response.count)
     } catch (e) {
-        // TODO Handler error
+        console.error(e);
     }
 
     async componentDidMount() {
@@ -119,7 +119,7 @@ class DetailView extends React.Component {
                     <Row justifyContent="center">
                         <Col col={12} md="4" mdOffset="2">
                             {/* TODO preparar carrusel para cuando se reciba más de una imagen*/}
-                            <ImageProduct image={ this.props.product.imgUrl }/>
+                            <ImageProduct image={ imgUrl }/>
                         </Col>
                         <Col col={12} md="6" lg="6" xl="6">
                             <DescriptionProduct description={ descriptions }/>
