@@ -1,7 +1,8 @@
 import React from "react";
 import { Col, Container, Row } from '../../atoms/Grid';
 import Breadcrumb from "../../atoms/breadcrumb/Breadcrumb";
-import {ColTittle, HeaderContainer} from "./HeaderStyle";
+import { ColTittle, HeaderContainer } from "./HeaderStyle";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
     render() {
@@ -10,7 +11,9 @@ class Header extends React.Component {
                 <HeaderContainer fluid={true}>
                     <Row alignItems="center" justifyContent="between">
                         <ColTittle col={2}>
-                            <h1> MyMovil </h1>
+                            <Link to={"/"}>
+                                <h1> MyMovil </h1>
+                            </Link>
                         </ColTittle>
                         <Col col={1}>
                             { this.props.cart}
