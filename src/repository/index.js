@@ -28,7 +28,7 @@ async function configure () {
         baseURL: baseUrl + apiVersion,
         timeout: 5000,
         cache: {
-            maxAge: 15 * 60 * 1000,
+            maxAge: 60 * 60 * 1000,
             store: forageStore,
             exclude: { query: false },
             key: req => req.url + JSON.stringify(req.params),
