@@ -1,7 +1,7 @@
 import React from 'react';
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import routes from "../../../config/routes";
-import { BreadCrumbs } from "./BreadCrumbStyle";
+import { BreadCrumbs, BreadCrumbColor } from "./BreadCrumbStyle";
 
 function Breadcrumb (props) {
     const crumbs = routes
@@ -27,9 +27,9 @@ function Breadcrumb (props) {
                             {name}
                         </span>
                 ) : (
-                    <Link key={key} to={path}>
+                    <BreadCrumbColor key={key} to={path}>
                         {`${name} / `}
-                    </Link>
+                    </BreadCrumbColor>
                 )
             )}
         </BreadCrumbs>
