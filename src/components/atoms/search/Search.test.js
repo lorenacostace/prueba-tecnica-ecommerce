@@ -7,7 +7,7 @@ describe('Search', () => {
     let component;
     const mockHandler = jest.fn()
 
-    it('', () => {
+    it('Verification of the text entered and the call to the function that updates it', () => {
         component = render(<Search updateFilter={ (value) => mockHandler(value) }/>)
 
         expect(component).toBeDefined();
@@ -19,7 +19,6 @@ describe('Search', () => {
         expect(input.value).toBe('liquid')
 
         expect(mockHandler).toHaveBeenCalledTimes(1)
-
     })
 })
 
