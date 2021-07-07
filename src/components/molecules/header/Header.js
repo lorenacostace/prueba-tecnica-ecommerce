@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from '../../atoms/Grid';
 import Breadcrumb from "../../atoms/breadcrumb/Breadcrumb";
-import { ColTittle, HeaderContainer } from "./HeaderStyle";
+import {CartStyle, ColCart, ColTittle, HeaderContainer} from "./HeaderStyle";
 import { Link } from "react-router-dom";
 
 class Header extends React.Component {
@@ -15,9 +15,11 @@ class Header extends React.Component {
                                 <h1> MyMovil </h1>
                             </Link>
                         </ColTittle>
-                        <Col col={1}>
-                            { this.props.cart}
-                        </Col>
+                        <ColCart col={1}>
+                            <CartStyle>
+                                { this.props.cart}
+                            </CartStyle>
+                        </ColCart>
                     </Row>
                 </HeaderContainer>
                 <Container>
